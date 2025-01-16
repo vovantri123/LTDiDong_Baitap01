@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TextView để hiển thị nội dung -->
     <TextView
         android:id="@+id/textViewCau4"
         android:layout_width="wrap_content"
@@ -17,7 +16,6 @@
         android:layout_marginTop="50dp"
         android:gravity="center"/>
 
-    <!-- EditText để nhập mảng -->
     <EditText
         android:id="@+id/editTextArray"
         android:layout_width="0dp"
@@ -29,7 +27,6 @@
         android:layout_marginTop="20dp"
         android:inputType="text"/>
 
-    <!-- Button để xử lý nhập mảng -->
     <Button
         android:id="@+id/buttonProcess"
         android:layout_width="wrap_content"
@@ -40,7 +37,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"/>
 
-    <!-- TextView để hiển thị kết quả -->
     <TextView
         android:id="@+id/textViewResult"
         android:layout_width="wrap_content"

@@ -3,6 +3,8 @@ package vn.iostar.baitap01;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +21,9 @@ public class Cau4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_cau4);
 
         editTextArray = findViewById(R.id.editTextArray);
@@ -30,7 +35,6 @@ public class Cau4Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String input = editTextArray.getText().toString();
                 if (!input.isEmpty()) {
-                    // Chuyển chuỗi nhập vào thành mảng số
                     String[] stringArray = input.split(",");
                     ArrayList<Integer> numberList = new ArrayList<>();
                     for (String str : stringArray) {
@@ -41,7 +45,6 @@ public class Cau4Activity extends AppCompatActivity {
                         }
                     }
 
-                    // Tìm các số nguyên tố trong mảng
                     ArrayList<Integer> primeNumbers = new ArrayList<>();
                     for (int number : numberList) {
                         if (isPrime(number)) {
@@ -49,16 +52,14 @@ public class Cau4Activity extends AppCompatActivity {
                         }
                     }
 
-                    // In ra kết quả trên log (console) bằng Log.d
                     String result = "Số nguyên tố: " + primeNumbers.toString();
                     textViewResult.setText(result);
-                    Log.d("PrimeNumbers", result); // In ra console Logcat
+                    Log.d("PrimeNumbers", result);
                 }
             }
         });
     }
 
-    // Hàm kiểm tra số nguyên tố
     private boolean isPrime(int number) {
         if (number <= 1) return false;
         for (int i = 2; i <= Math.sqrt(number); i++) {
